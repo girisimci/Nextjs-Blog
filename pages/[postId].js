@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-
 export default function Home() {
   return (
     <div className="container">
@@ -36,35 +35,7 @@ export default function Home() {
       <div className="blog-date">29 Aralık 2020</div>
       
         </div>
-        <div className="blog">
-      <h2 className="blog-title">
-        <Link href="/test"><a className="blog-title-link">Blog Başlığı</a></Link></h2>
-      
-      <div>Lorem ipsum dolor, sit amet consectetur
-         adipisicing elit. In, sequi quia! Aspernatur 
-         rerum dolorem excepturi possimus neque, nostrum eum debitis 
-         fuga explicabo
-         architecto suscipit ut id cumque veritatis, 
-         similique odio. </div>
-      <div className="blog-date">29 Aralık 2020</div>
-      
-        </div>
-        <div className="blog">
-      <h2 className="blog-title">
-        <Link href="/test"><a className="blog-title-link">Blog Başlığı</a></Link></h2>
-      
-      <div>Lorem ipsum dolor, sit amet consectetur
-         adipisicing elit. In, sequi quia! Aspernatur 
-         rerum dolorem excepturi possimus neque, nostrum eum debitis 
-         fuga explicabo
-         architecto suscipit ut id cumque veritatis, 
-         similique odio. </div>
-      <div className="blog-date">29 Aralık 2020</div>
-      
-        </div>
-
-        
-
+       
         <style jsx>{`
         .container {
           max-width:650px;
@@ -94,7 +65,6 @@ export default function Home() {
           text-decoration:none;
 
         }
-
         .hero-social-links{
           
           text-align:center;
@@ -105,5 +75,7 @@ export default function Home() {
       `}</style>
      
     </div>
-  )
+    
+  );
+  
 }
