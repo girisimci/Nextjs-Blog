@@ -21,7 +21,3 @@ const posts=[{
 
 
 ];
-
-export default(req,res) =>{
-    res.json({posts});
-};

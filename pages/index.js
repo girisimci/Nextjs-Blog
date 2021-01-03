@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 
-export default function Home() {
+export default function Home({posts}) {
   return (
     <div className="container">
       <Head>
@@ -23,46 +23,30 @@ export default function Home() {
       </Link>
       </div>
      
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       {posts.map(posts=>(
+       
         <div className="blog">
       <h2 className="blog-title">
-        <Link href="/test"><a className="blog-title-link">Blog Başlığı</a></Link></h2>
+        <Link href="/test"><a className="blog-title-link">{posts.title}</a></Link></h2>
       
-      <div>Lorem ipsum dolor, sit amet consectetur
-         adipisicing elit. In, sequi quia! Aspernatur 
-         rerum dolorem excepturi possimus neque, nostrum eum debitis 
-         fuga explicabo
-         architecto suscipit ut id cumque veritatis, 
-         similique odio. </div>
-      <div className="blog-date">29 Aralık 2020</div>
+      <div>{posts.details}</div>
+      <div className="blog-date">{posts.date}</div>
       
         </div>
-        <div className="blog">
-      <h2 className="blog-title">
-        <Link href="/test"><a className="blog-title-link">Blog Başlığı</a></Link></h2>
       
-      <div>Lorem ipsum dolor, sit amet consectetur
-         adipisicing elit. In, sequi quia! Aspernatur 
-         rerum dolorem excepturi possimus neque, nostrum eum debitis 
-         fuga explicabo
-         architecto suscipit ut id cumque veritatis, 
-         similique odio. </div>
-      <div className="blog-date">29 Aralık 2020</div>
-      
-        </div>
-        <div className="blog">
-      <h2 className="blog-title">
-        <Link href="/test"><a className="blog-title-link">Blog Başlığı</a></Link></h2>
-      
-      <div>Lorem ipsum dolor, sit amet consectetur
-         adipisicing elit. In, sequi quia! Aspernatur 
-         rerum dolorem excepturi possimus neque, nostrum eum debitis 
-         fuga explicabo
-         architecto suscipit ut id cumque veritatis, 
-         similique odio. </div>
-      <div className="blog-date">29 Aralık 2020</div>
-      
-        </div>
-
+      ))}
         
 
         <style jsx>{`
@@ -107,3 +91,9 @@ export default function Home() {
     </div>
   )
 }
+Home.getInitialProps = async ({req}) => {
+  const res = await fetch('http://localhost:3000/api/posts')
+  const json = await res.json()
+  return { posts: json.posts }
+}
+

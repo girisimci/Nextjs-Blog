@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-export default function Home() {
+export default function BlogPost({post}) {
   return (
     <div className="container">
       <Head>
@@ -24,15 +24,10 @@ export default function Home() {
      
         <div className="blog">
       <h2 className="blog-title">
-        <Link href="/test"><a className="blog-title-link">Blog Başlığı</a></Link></h2>
+        <Link href="/test"><a className="blog-title-link">{post.title}</a></Link></h2>
       
-      <div>Lorem ipsum dolor, sit amet consectetur
-         adipisicing elit. In, sequi quia! Aspernatur 
-         rerum dolorem excepturi possimus neque, nostrum eum debitis 
-         fuga explicabo
-         architecto suscipit ut id cumque veritatis, 
-         similique odio. </div>
-      <div className="blog-date">29 Aralık 2020</div>
+      <div>{post.detail}</div>
+      <div className="blog-date">{post.date}</div>
       
         </div>
        
@@ -76,6 +71,13 @@ export default function Home() {
      
     </div>
     
-  );
+  ); 
   
 }
+BlogPost.getInitialProps = async ({req,query}) => {
+  const res = await fetch('http://localhost:3000/api/post/${query.postId}')
+  const json = await res.json()
+  return { post: json.post }
+}
+
+
