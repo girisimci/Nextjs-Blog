@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 
 export default function Home({posts}) {
@@ -22,17 +23,7 @@ export default function Home({posts}) {
         <a className="social-link"> İnstagram </a>
       </Link>
       </div>
-     
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
+
        
        
        {posts.map(posts=>(
@@ -41,7 +32,7 @@ export default function Home({posts}) {
       <h2 className="blog-title">
         <Link href="/test"><a className="blog-title-link">{posts.title}</a></Link></h2>
       
-      <div>{posts.details}</div>
+      <ReactMarkdown source={posts.detail}/>
       <div className="blog-date">{posts.date}</div>
       
         </div>

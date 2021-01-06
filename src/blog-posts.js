@@ -1,4 +1,6 @@
-const posts=[{
+export const getPosts = async ()=>{
+const content = await require(`./posts/yeni-yazi.md`);
+return[{
 
     title:'test baslik',
     details:'detay',
@@ -21,3 +23,4 @@ const posts=[{
 
 
 ];
+};
